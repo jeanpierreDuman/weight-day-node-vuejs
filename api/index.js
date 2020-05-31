@@ -1,16 +1,16 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
 
-app.get('/', function(req, res) {
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({
-        firstname: "Jean-Pierre",
-        lastname: "Duman",
-        email: "duman.jeanpierre@gmail.com"
-    })
-    );
+require('./routes/weight.routes.js')(app);
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get("/", (req, res) => {
+    res.json({ message: "Welcome to bezkoder application." });
 });
 
-app.listen(8000, function() {
-    console.log('Server is running on http://localhost:8000/');
+app.listen(3333, function() {
+    console.log('Server is running on http://localhost:3333/');
 });

@@ -1,0 +1,8 @@
+CREATE DATABASE weight_day;
+
+CREATE TABLE `weight` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`day` TEXT(10),
+	`weight` FLOAT(10),
+	PRIMARY KEY (`id`)
+);
