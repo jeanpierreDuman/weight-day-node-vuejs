@@ -14,3 +14,17 @@ Weight.create = (newWeight, result) => {
         }
     })
 }
+
+Weight.list = result => {
+    sql.query("SELECT * FROM weight", (err, res) => {
+        if(err) {
+            console.log('error :', err);
+            result(err, null);
+            return;
+        }
+
+        result(null, res);
+    })
+}
+
+module.exports = Weight;
